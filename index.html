@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+<title>This is a sample template</title>
+<style type="text/css">
+*{
+margin: 0;
+padding: 0;
+box-sizing: 0;
+}
+body{
+background-color: #121230;
+}
+.bg{
+width: 100%;
+height: 100%;
+}
+.circle{
+position: absolute;
+background-color: #deaaff;
+border-radius: 50%;
+width: 100px;
+height: 100px;
+}
+@keyframes down{
+100%{
+transform: translateY(1000px);
+}
+}
+@keyframes up{
+100%{
+transform: translateY(-1000px);
+}
+}
+.main{
+position: absolute;
+background-color: #aa000000;
+color: #ffffff;
+box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5),
+-3px -3px 5px rgba(100, 100, 100, 0.5);
+padding: 5px;
+border-radius: 5px;
+z-index: 1;
+left: 50px;
+top: 25px;
+right: 50px;
+text-align: center;
+}
+.main table{
+position: relative;
+left: 10px;
+right: 10px;
+text-align: center;
+}
+.main h3, .main label{
+font-family: "Times New Roman", serif;
+}
+.main input{
+background-color: transparent;
+border: none;
+outline: 0;
+color: #ffffff;
+font-family: "Courier New", monospace;
+font-weight: bolder;
+}
+.main input[type="submit"]{
+background-color: rgba(100, 50, 200, 0.5);
+padding: 2px 10px;
+border-radius: 10px;
+font-family: "Times New Roman", serif;
+}
+</style>
+</head>
+<body>
+<div id="bg" class="bg">
+</div>
+<div class="main">
+<h3>Login Panel</h3>
+<form>
+<table>
+<tr>
+<td>
+<label for="username">Username: </label>
+</td>
+<td>
+<input type="text" id="username">
+</td>
+</tr>
+<tr>
+<td>
+<label for="pass">Password: </label>
+</td>
+<td>
+<input type="password" id="pass">
+</td>
+</tr>
+<tr>
+<td colspan="2">
+<input type="submit" value="Proceed">
+</td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+<script type="text/javascript">
+let a = document.getElementById("bg")
+let m = Math.floor(Math.random() * 100)
+let c = "01234567890abcdef"
+for(let n = 0; n < m; n++){//
+let b = document.createElement("div")
+b.classList.add("circle")
+if((n % 2) == 0){
+b.style.animation = "down 5s linear infinite"
+b.style.top = "-150px"
+}else{
+b.style.animation = "up 5s linear infinite"
+b.style.bottom = "-1000px"
+}
+b.style.left = (Math.random() * 1000) + "px"
+let hw = (Math.random() * 100) + "px"
+let opacity = (Math.random() * 100) * 0.01
+b.style.width = hw
+b.style.height = hw
+b.style.animationDelay = (Math.random() * 10) + "s"
+let col = "#ff"
+for(let i = 0; i < 6; i++){
+col += c[Math.floor(Math.random() * c.length)]
+}
+b.style.backgroundColor = col
+b.style.opacity = opacity
+a.appendChild(b)
+}
+</script>
+</html>
